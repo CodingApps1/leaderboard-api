@@ -1,9 +1,10 @@
-from app import create_app, db
+from flask import Flask
 
-app = create_app()
+app = Flask(__name__) 
 
-with app.app_context():
-    db.create_all()
+@app.route("/")
+def home():
+    return "Hello, Flask API is running!"
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# if __name__ == "__main__":
+#     app.run(debug=True)  # Only for local development
